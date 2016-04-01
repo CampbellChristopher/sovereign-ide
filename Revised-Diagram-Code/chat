@@ -1,0 +1,44 @@
+@startuml
+hide circle
+hide empty fields
+hide empty methods
+title <b> Chat Management </b>
+note "Author: Hue Purkett\nReviewed by: Austin Sass" as Nhue2
+class chat{
+ messageList
+ upVote()
+ downVote()
+ speak()
+ delete()
+}
+class message{
+ text
+ timestamp
+ rating
+ designation
+ speaker
+}
+class forum{
+ projectList
+ upVote()
+ downVote()
+ newListing()
+ deleteListing()
+ comment()
+}
+class projectListing{
+ name
+ ownerList
+ rating
+ project
+ comments
+ comment()
+}
+
+
+chat -- "*" message : "Generates and Stores"
+projectListing o-r- "1" chat
+forum -- "*" projectListing : "Generates and Stores"
+
+
+@enduml
