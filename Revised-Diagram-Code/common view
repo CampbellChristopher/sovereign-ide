@@ -1,0 +1,46 @@
+@startuml
+hide circle
+hide empty methods
+hide empty fields
+title <b> Common View </b>
+note "Author: Austin Sass\nReviewed by: Hue Purkett" as N
+class commonView {
+  switchView()
+}
+class editor
+class textTransform {
+  editStack : stack
+  userCount : int
+  userPosition : [] int
+  file : filepointer
+  pipe
+  startThread()
+  joinThread()
+  parse()
+  movePtr()
+  addText()
+  deleteText()
+}
+class pipeline {
+  socket 
+  connect()
+  disconnect()
+}
+class fileHierarchy {
+  files : tree
+  addFile()
+  removeFile()
+  moveFile()
+}
+class file
+
+
+commonView o-- "*" editor 
+commonView o-d- fileHierarchy
+fileHierarchy o-d- "*" file
+editor o-- textTransform 
+textTransform -- "1..10" pipeline : reads
+
+@enduml
+
+
