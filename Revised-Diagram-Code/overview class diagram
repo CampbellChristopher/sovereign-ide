@@ -1,0 +1,52 @@
+@startuml
+hide circle
+hide empty methods
+hide empty fields
+title <b> Team Sovereign's Overview Class Diagram </b>
+note "Compiled by: Dillon, Cody, Austin, and Tyler\nReviewed and revised by Hue" as N1
+class commonView
+class editor
+class textTransform
+class pipeline
+class fileHierarchy
+class sQuire
+class User
+class Admin
+class Executable
+class Debugger
+class Compiler
+class chat
+class message
+class forum
+class projectListing
+class ManageFiles
+
+
+chat o-- "*" message
+Project o-- chat
+forum o-- "*" projectListing
+sQuire o-- "1" forum
+
+ManageFiles -- fileHierarchy : "manages"
+editor o-- SyntaxHighlighting
+
+Executable -l-o Project
+Debugger -r-o Project
+Compiler -r-o Project
+
+User <|- Admin
+User -- Executable : runs
+projectListing o-- Project
+Project o-- "1..10" User
+
+Project o-- commonView
+commonView -- editor : maintains
+commonView -- fileHierarchy :display
+fileHierarchy o-- "*" File
+
+editor o-- textTransform
+textTransform o-- "1..10" pipeline
+chat --o File
+
+
+@enduml
