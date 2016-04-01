@@ -1,0 +1,37 @@
+@startuml
+hide circle
+hide empty methods
+hide empty fields
+title <b>Compilation and Execution</b>
+note "Dillon and Cody's Class diagram\nRevised by Hue Purkett" as N1
+class sQuire
+class user
+class admin
+class project{
+  class compiler
+  class executable
+  class debugger
+}
+class compiler{
+  compileCode()
+  Object textFile
+  syntaxCheck()
+}
+class executable{
+  Object binaryFile
+  executeBinary()
+}
+class debugger{
+  Object syntaxCheckList
+  setBreakPoint()
+}
+
+
+sQuire o-- "*" project
+project o-r- "1..*" user
+project o-- executable
+project o-- debugger
+project o-- compiler
+user <|-l- admin
+user -d- executable : runs
+@enduml
