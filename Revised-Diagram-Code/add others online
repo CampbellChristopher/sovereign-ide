@@ -1,0 +1,17 @@
+@startuml
+hide circle
+hide empty method
+hide empty fields
+title <b> Adding Others online </b>
+note "Author: Afnan Alsharif\nReviewed by: Tyler songstad & Hue Purkett" as N
+class sQuire
+class User
+class Forum
+
+sQuire o-- "1" Forum
+Project o-r- "1..*" User
+Project -- "*" Invitation: spawns
+Forum o-d- Search
+Forum o-r- "*" Project
+Invitation -- User: Acknowledges
+@enduml
