@@ -1,0 +1,17 @@
+hide circle
+hide empty methods
+hide empty fields
+title <b> Code Editing Class Diagram </b>
+
+
+Project o-- "*" File
+note "Chris and Jesse's Class Diagram\nReviewed by Hue Purkett" as N1
+File o-- "*" ManageFiles
+File o-- "*" SyntaxHighlighting
+File o-- "*" IdentifyUser
+
+ManageFiles : CreateFile()
+ManageFiles : EditFile()
+ManageFiles : DeleteFile()
+
+IdentifyUser o-- "1..8" User
